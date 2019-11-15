@@ -1,26 +1,52 @@
 <script>
 
+// Function works. It is weighted however, lol.
 function computerPlay(cpuAnswer) {
     
-    cpuAnswer = Math.round(Math.random() * 3) + 1;
-    
-    switch (cpuAnswer) {
-        case 1: 
-            console.log('Rock');
-            return 'Rock';
-        case 2:
-            console.log('Paper');
-            return 'Paper';
-        case 3:
-            console.log('Scissors');
-            return 'Scissors';
+    cpuAnswer = Math.round(Math.random() * 3);
+
+    if (cpuAnswer == 1) {
+        console.log('Rock');
+        return 'Rock';
+    } else if (cpuAnswer == 2) {
+        console.log('Paper');
+        return 'Paper';
+    } else if (cpuAnswer == 3) {
+        console.log('Scissors');
+        return 'Scissors';
+    } else if (cpuAnswer >= 4) {
+        console.log('Paper');
+        return 'Paper';
+    } else if (cpuAnswer < 1) {
+        console.log('Rock');
+        return 'Rock';
+    }
+}
+
+function playerPrompt(ppAnswer) {
+
+   ppAnswer = window.prompt('Enter rock, paper, or scissors');
+
+    if (! ppAnswer.localeCompare('rock', undefined, {sensitivity: 'accent'})) {
+        console.log('Rock');
+        return 'Rock';
+    } else if (! ppAnswer.localeCompare('paper', undefined, {sensitivity: 'accent'})) {
+        console.log('Paper');
+        return 'Paper';
+    } else if (! ppAnswer.localeCompare('scissors', undefined, {sensitivity: 'accent'})) {
+        console.log('Scissors');
+        return 'Scissors';
     }
 
 }
 
+const computerSelection = computerPlay()
+const playerSelection = playerPrompt()
 
 function playRound(playerSelection, computerSelection) {
-    
+
 }
+
+// Next commit: Fixed computerPlay()'s "undefined" bug, assigned selection variables, created playerPrompt() to be case-insensitive
 
 </script>
