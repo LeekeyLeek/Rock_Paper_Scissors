@@ -39,14 +39,86 @@ function playerPrompt(ppAnswer) {
     }
 
 }
-
+// I think because these are constants, the switch statement can't overwrite them.
 const computerSelection = computerPlay()
 const playerSelection = playerPrompt()
 
+
+
+/*
+Bugs: winner is not defined. No output from switch() statement
+Might have to use a ternary operator to make this easier? We'll see.
+
+*/
+
 function playRound(playerSelection, computerSelection) {
+
+    console.log('Starting round...')
+
+//Last thing would be to make winner add to another value in game(). ties add to both
+    switch (playerSelection, computerSelection) {
+
+        case playerSelection == 'Rock' && computerSelection == 'Paper':
+            console.log('You lose! Paper beats Rock!');
+            return 'You lose! Paper beats Rock!';
+            break;
+
+        case playerSelection == 'Paper' && computerSelection == 'Scissors':
+            console.log('You lose! Scissors beats Paper!');
+            return 'You lose! Scissors beats Paper!';
+            break;
+
+        case playerSelection == 'Scissors' && computerSelection == 'Rock':
+            console.log('You lose! Rock beats Scissors!');
+            return 'You lose! Rock beats Scissors!';
+            break;
+        
+
+        case playerSelection == 'Rock' && computerSelection == 'Scissors':
+            console.log('You win! Rock beats Scissors!');
+            return 'You win! Rock beats Scissors!';
+            break;
+
+        case playerSelection == 'Paper' && computerSelection == 'Rock':
+            console.log('You win! Paper beats Rock!');
+            return 'You win! Paper beats Rock!';
+            break;
+
+        case playerSelection == 'Scissors' && computerSelection == 'Paper':
+            console.log('You win! Scissors beats Paper!')
+            return 'You win! Scissors beats Paper!';
+            break;
+
+
+        case playerSelection == computerSelection:
+            console.log('Its a tie!');
+            return 'Its a tie!';
+            break;
+
+
+    }
+
+
 
 }
 
-// Next commit: Fixed computerPlay()'s "undefined" bug, assigned selection variables, created playerPrompt() to be case-insensitive
+playerPrompt()
+playRound()
+
+
+
+
+/* 
+This function needs to:
+
+Create a variable for the player and cpu
+Have a prompt in between each game for the player
+Assign a point value depending on who wins each round with "+="
+Announce a winner at the end
+
+*/
+function game() {
+
+}
 
 </script>
