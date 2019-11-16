@@ -25,7 +25,7 @@ function computerPlay(cpuAnswer) {
 
 function playerPrompt(ppAnswer) {
 
-   ppAnswer = window.prompt('Enter rock, paper, or scissors');
+   ppAnswer = window.prompt('Enter Rock, Paper, or Scissors');
 
     if (! ppAnswer.localeCompare('rock', undefined, {sensitivity: 'accent'})) {
         console.log('Rock');
@@ -39,71 +39,44 @@ function playerPrompt(ppAnswer) {
     }
 
 }
-// I think because these are constants, the switch statement can't overwrite them.
+
 const computerSelection = computerPlay()
 const playerSelection = playerPrompt()
 
-
-
-/*
-Bugs: winner is not defined. No output from switch() statement
-Might have to use a ternary operator to make this easier? We'll see.
-
-*/
 
 function playRound(playerSelection, computerSelection) {
 
     console.log('Starting round...')
 
-//Last thing would be to make winner add to another value in game(). ties add to both
-    switch (playerSelection, computerSelection) {
 
-        case playerSelection == 'Rock' && computerSelection == 'Paper':
-            console.log('You lose! Paper beats Rock!');
-            return 'You lose! Paper beats Rock!';
-            break;
-
-        case playerSelection == 'Paper' && computerSelection == 'Scissors':
-            console.log('You lose! Scissors beats Paper!');
-            return 'You lose! Scissors beats Paper!';
-            break;
-
-        case playerSelection == 'Scissors' && computerSelection == 'Rock':
-            console.log('You lose! Rock beats Scissors!');
-            return 'You lose! Rock beats Scissors!';
-            break;
-        
-
-        case playerSelection == 'Rock' && computerSelection == 'Scissors':
-            console.log('You win! Rock beats Scissors!');
-            return 'You win! Rock beats Scissors!';
-            break;
-
-        case playerSelection == 'Paper' && computerSelection == 'Rock':
-            console.log('You win! Paper beats Rock!');
-            return 'You win! Paper beats Rock!';
-            break;
-
-        case playerSelection == 'Scissors' && computerSelection == 'Paper':
-            console.log('You win! Scissors beats Paper!')
-            return 'You win! Scissors beats Paper!';
-            break;
-
-
-        case playerSelection == computerSelection:
-            console.log('Its a tie!');
-            return 'Its a tie!';
-            break;
-
-
+    if (playerSelection === 'Rock' && computerSelection === 'Paper') {
+        console.log('You lose! Paper beats Rock!');
+        return 'You lose! Paper beats Rock!';
+    } else if (playerSelection === 'Paper' && computerSelection === 'Scissors') {
+        console.log('You lose! Scissors beats Paper!');
+        return 'You lose! Scissors beats Paper!';
+    } else if (playerSelection === 'Scissors' && computerSelection === 'Rock') {
+        console.log('You lose! Rock beats Scissors!');
+        return 'You lose! Rock beats Scissors!';
+    } else if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
+        console.log('You win! Rock beats Scissors!');
+        return 'You win! Rock beats Scissors!';
+    } else if (playerSelection === 'Paper' && computerSelection === 'Rock') {
+        console.log('You win! Paper beats Rock!');
+        return 'You win! Paper beats Rock!';
+    } else if (playerSelection === 'Scissors' && computerSelection === 'Paper') {
+        console.log('You win! Scissors beats Paper!')
+        return 'You win! Scissors beats Paper!';
+    } else if (playerSelection === computerSelection) {
+        console.log('Its a tie!');
+        return 'Its a tie!';
     }
-
 
 
 }
 
-playerPrompt()
-playRound()
+
+playRound(playerSelection, computerSelection)
 
 
 
