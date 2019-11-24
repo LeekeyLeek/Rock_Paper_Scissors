@@ -1,31 +1,29 @@
 <script>
+// Sets player and computer scores to 0
+let player = 0
+let computer = 0
 
-// Function works. It is weighted however, lol.
-function computerPlay(cpuAnswer) {
-    
-    cpuAnswer = Math.round(Math.random() * 3);
+// Randomly chooses a number between 0-2 and assigns that number to the CPU's choice
+function computerPlay() {
+   
+    let cpuAnswer = Math.floor(Math.random() * 3);
 
-    if (cpuAnswer == 1) {
+    if (cpuAnswer == 0) {
         console.log('Rock');
         return 'Rock';
-    } else if (cpuAnswer == 2) {
+    } else if (cpuAnswer == 1) {
         console.log('Paper');
         return 'Paper';
-    } else if (cpuAnswer == 3) {
+    } else if (cpuAnswer == 2) {
         console.log('Scissors');
         return 'Scissors';
-    } else if (cpuAnswer >= 4) {
-        console.log('Paper');
-        return 'Paper';
-    } else if (cpuAnswer < 1) {
-        console.log('Rock');
-        return 'Rock';
     }
 }
 
-function playerPrompt(ppAnswer) {
+// Creates a window prompt for player input. Uses .localCompare to apply case insensitivity
+function playerPrompt() {
 
-   ppAnswer = window.prompt('Enter Rock, Paper, or Scissors');
+    let ppAnswer = window.prompt('Enter Rock, Paper, or Scissors');
 
     if (! ppAnswer.localeCompare('rock', undefined, {sensitivity: 'accent'})) {
         console.log('Rock');
@@ -40,58 +38,55 @@ function playerPrompt(ppAnswer) {
 
 }
 
-const computerSelection = computerPlay()
-const playerSelection = playerPrompt()
-
-
+//Defines the parameters, runs the functions, and uses IF statements to choose an output. Returns player or cpu score increase.
 function playRound(playerSelection, computerSelection) {
 
     console.log('Starting round...')
 
+    playerSelection = playerPrompt()
+    computerSelection = computerPlay()
 
-    if (playerSelection === 'Rock' && computerSelection === 'Paper') {
+    if (playerSelection == 'Rock' && computerSelection == 'Paper') {
         console.log('You lose! Paper beats Rock!');
-        return 'You lose! Paper beats Rock!';
-    } else if (playerSelection === 'Paper' && computerSelection === 'Scissors') {
+        return computer += 1;
+    } else if (playerSelection == 'Paper' && computerSelection == 'Scissors') {
         console.log('You lose! Scissors beats Paper!');
-        return 'You lose! Scissors beats Paper!';
-    } else if (playerSelection === 'Scissors' && computerSelection === 'Rock') {
+        return computer += 1;
+    } else if (playerSelection == 'Scissors' && computerSelection == 'Rock') {
         console.log('You lose! Rock beats Scissors!');
-        return 'You lose! Rock beats Scissors!';
-    } else if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
+        return computer += 1;
+    } 
+    else if (playerSelection == 'Rock' && computerSelection == 'Scissors') {
         console.log('You win! Rock beats Scissors!');
-        return 'You win! Rock beats Scissors!';
-    } else if (playerSelection === 'Paper' && computerSelection === 'Rock') {
+        return player += 1;
+    } else if (playerSelection == 'Paper' && computerSelection == 'Rock') {
         console.log('You win! Paper beats Rock!');
-        return 'You win! Paper beats Rock!';
-    } else if (playerSelection === 'Scissors' && computerSelection === 'Paper') {
+        return player += 1;
+    } else if (playerSelection == 'Scissors' && computerSelection == 'Paper') {
         console.log('You win! Scissors beats Paper!')
-        return 'You win! Scissors beats Paper!';
-    } else if (playerSelection === computerSelection) {
+        return player += 1;
+    } else if (playerSelection == computerSelection) {
         console.log('Its a tie!');
-        return 'Its a tie!';
+        return;
     }
 
-
 }
 
-
-playRound(playerSelection, computerSelection)
-
-
-
-
-/* 
-This function needs to:
-
-Create a variable for the player and cpu
-Have a prompt in between each game for the player
-Assign a point value depending on who wins each round with "+="
-Announce a winner at the end
-
-*/
+//Runs the previous function 5 times and outputs the final score
 function game() {
 
+    playRound();
+    playRound();
+    playRound();
+    playRound();
+    playRound();
+
+console.log('Your score is: ' + player);
+console.log('The AI score is: ' + computer);
+return;
 }
+
+//Type this in the console to start the game.
+game()
 
 </script>
