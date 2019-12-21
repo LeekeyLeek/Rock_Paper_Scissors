@@ -1,3 +1,7 @@
-This is a simple Rock,Paper,Scissors game that runs for 5 rounds and declares a winner between you and the CPU.
+These are two Rock, Paper, Scissors games. Project for an online course I'm taking.
 
-Type game() in the console to run it.
+ORIGINAL VERSION:
+Open "rpsOriginal.html" and type game() in the console. A winner will be declared after 5 rounds.
+
+UPDATED VERSION:
+To run the updated version, open rps.html and click the buttons displayed. First player to 5 points will win the game.
